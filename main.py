@@ -4,7 +4,7 @@ def on_forever():
     lightintensity = pins.analog_read_pin(AnalogPin.P0)
     microIoT.microIoT_SendMessage(convert_to_text(lightintensity), microIoT.TOPIC.TOPIC_0)
     microIoT.microIoT_showUserText(0, "Send... " + convert_to_text(lightintensity))
-    if lightintensity < 500:
+    if lightintensity > 500:
         pins.analog_write_pin(AnalogPin.P16, 1023)
     else:
         pins.analog_write_pin(AnalogPin.P16, 0)
